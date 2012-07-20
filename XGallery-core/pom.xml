@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <packaging>jar</packaging>
+
+  <parent>
+	<groupId>cross.ha.demo</groupId>
+  	<artifactId>demo-xgallery</artifactId>
+	<version>1.0.0-738-SNAPSHOT</version>  	
+  </parent>	
+
+  <groupId>cross.ha.demo</groupId>
+  <artifactId>demo-xgallery-core-chromattic</artifactId>
+  <version>${org.chromattic.version}</version>
+
+  <name>XGallery Core Model</name>
+  <description>demo Chromattic</description>
+
+  <dependencies>
+    <!-- CHROMATTIC -->
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.api</artifactId>
+      <version>${org.chromattic.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.core</artifactId>
+      <version>${org.chromattic.core.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.apt</artifactId>
+      <version>${org.chromattic.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.chromattic</groupId>
+      <artifactId>chromattic.spi</artifactId>
+      <version>${org.chromattic.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+   <!-- Junit -->        
+   <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.common</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  
+  </dependencies>
+  
+  <build>
+    <finalName>xgallery-core</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>6</source>
+          <target>6</target>
+          <compilerArguments>
+            <sourcepath>${project.basedir}/src/main/java</sourcepath>
+          </compilerArguments>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

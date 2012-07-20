@@ -1,0 +1,20 @@
+#{param name=galleries/}
+#{param name=gallery/}
+#{param name=message/}
+
+
+${message}
+Choose existing gallery:
+<form action="@{GalleryController.selectGallery()}" method="post">
+	<% galleries.each() { gallery -> %>		
+	    <input type="radio" name="galleryPath" value="${gallery}"> ${gallery} </input>
+    <% } %>	
+    <input type="submit" value="Select"/>
+</form>
+
+<br>
+Or create a new gallery
+<form action="@{GalleryController.addGallery()}" method="post">
+	<input name="galleryName" value="noname"/>
+	<input type="submit" value="Add"/>	
+</form>

@@ -1,0 +1,13 @@
+#{param name=operation/}
+#{param name=result/}
+
+
+${operation} = ${result}
+<br>
+<form action="@{add()}" method="post">
+   <input type="text" name="n" value="1"/>
+   <input type="submit" value="add"/>
+</form>
+
+<br>
+<a href="@{restart()}">RESTART</a>

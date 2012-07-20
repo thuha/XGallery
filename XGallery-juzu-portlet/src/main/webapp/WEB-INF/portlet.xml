@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             version="2.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
+   http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+   <portlet>
+     <portlet-name>JuzuPortletCalculator</portlet-name>
+     <display-name xml:lang="EN">Juzu Demo</display-name>
+     <portlet-class>org.juzu.portlet.JuzuPortlet</portlet-class>
+     <init-param>
+       <name>juzu.app_name</name>
+       <value>AdditionApplication</value>
+     </init-param>
+     <init-param>
+       <name>juzu.run_mode</name>
+       <value>dev</value>
+     </init-param>
+     <supports>
+       <mime-type>text/html</mime-type>
+     </supports>
+     <portlet-info>
+       <title>Addition</title>
+       <keywords>juzu,sample</keywords>
+     </portlet-info>
+   </portlet>  
+   
+   <portlet>
+     <portlet-name>JuzuPortletGallery</portlet-name>
+     <display-name xml:lang="EN">Juzu Gallery</display-name>
+     <portlet-class>org.juzu.portlet.JuzuPortlet</portlet-class>
+     <init-param>
+       <name>juzu.app_name</name>
+       <value>GalleryApplication</value>
+     </init-param>
+     <init-param>
+       <name>juzu.run_mode</name>
+       <value>dev</value>
+     </init-param>     
+     <init-param>
+       <name>workspace</name>
+       <value>portal-work</value>
+     </init-param>
+     <supports>
+       <mime-type>text/html</mime-type>
+       <portlet-mode>edit</portlet-mode>
+     </supports>
+     <portlet-info>
+       <title>Gallery</title>
+       <keywords>juzu,sample</keywords>
+     </portlet-info>
+     <portlet-preferences>
+            <preference>
+                <name>gallery-name</name>
+                <value>Noname00</value>
+                <read-only>false</read-only>
+            </preference>                      
+     </portlet-preferences>
+     <supported-processing-event>
+           <name>NewPhotoUploaded</name>
+     </supported-processing-event>         
+   </portlet>  
+</portlet-app>

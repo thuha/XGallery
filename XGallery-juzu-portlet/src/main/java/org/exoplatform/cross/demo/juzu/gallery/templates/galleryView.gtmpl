@@ -1,0 +1,10 @@
+#{param name=title/}
+#{param name=photos/}
+#{param name=message/}
+
+
+<h1> ${title} </h1><h5> ${message} </h5>
+
+<% photos.each() { photo -> %>		
+	<img src="${photo.getPath()}" alt="${photo.getPath()}"/>	   
+<% } %>	
