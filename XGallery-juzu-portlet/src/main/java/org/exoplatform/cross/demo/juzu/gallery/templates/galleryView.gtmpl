@@ -2,9 +2,57 @@
 #{param name=photos/}
 #{param name=message/}
 
+<a style="float:right" id="refresh-btn" class="btn btn-primary" href="@{GalleryController.refresh()}"></a>
+<h1 > ${title} </h1>
 
-<h1> ${title} </h1><h5> ${message} </h5>
+<h5> ${message} </h5>
 
-<% photos.each() { photo -> %>		
-	<img src="${photo.getPath()}" alt="${photo.getPath()}"/>	   
-<% } %>	
+<%
+//TODO		
+String workspaceURL = "/rest/jcr/repository/portal-system"; 
+%>
+
+<div class="well">	    	
+	<div id="sortable" class="row">	
+	<% 
+			   photos.each() { photo ->			   
+			   String url = workspaceURL + photo.getPath();			   			  
+			   String photoTitle = url.substring(url.lastIndexOf("/")+1, url.length());		
+			   def createdDate = photo.getCreated();
+			   //def df = new SimpleDateFormat(uicomponent.getDateTimeFormat());  
+		       //def strCreatedDate = df.format(createdDate);	  
+	%>
+		<div rel="draptable" class="span3" style="padding-bottom: 3em;">
+				<div>
+			   		<a href="javascript:viewPhoto('${photoTitle}','${url}');"
+			   		class="btn" rel="popover" title="${photoTitle}" data-content="Created date: ${createdDate}">
+					   <img src="${url}" alt="${url}" style="height: 100px; width: 100px;"/>
+				   	</a>				     
+				</div>								
+		</div>		
+	<% } %>		
+	</div>
+	<h4 style="float:right">Bootstrap & Jquery-UI</h4>
+</div>
+
+
+	<div class="modal hide fade" id="pix-modal">
+	    <div class="modal-header">
+	    	<a class="close" data-dismiss="modal">×</a>
+	    	<h3 id="modal_photo_title">IMAGE</h3>
+	    </div>
+	    <div class="modal-body">	    
+	   	  <img width="220" id="modal_photo_content" src=""/>	   	  
+	   	  <div >
+	   	  	<span style="float:left"> 3 </span>
+	   	  	<span class="ui-icon ui-icon-heart"/>
+	   	  </div>	   	  
+	    </div>
+	    <div class="modal-footer">
+	    	<a class="btn" data-dismiss="modal" href="$('#comments').toggle()">Comment</a>
+			<a id="like-btn" class="btn btn-primary" href="#">LIKE</a>
+	    </div>	      
+    </div>
+
+
+

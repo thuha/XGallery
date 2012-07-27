@@ -2,8 +2,8 @@
 #{param name=gallery/}
 #{param name=message/}
 
-
 ${message}
+<br>
 Choose existing gallery:
 <form action="@{GalleryController.selectGallery()}" method="post">
 	<% galleries.each() { gallery -> %>		

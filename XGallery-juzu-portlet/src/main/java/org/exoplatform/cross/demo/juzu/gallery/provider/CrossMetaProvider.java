@@ -51,23 +51,19 @@ public class CrossMetaProvider implements org.juzu.impl.inject.MetaProvider{
 				         Method getTopContainerMethod = eXoContainerContextClass.getMethod("getTopContainer");
 				         Object topContainer = getTopContainerMethod.invoke(null);
 		
-				         //
 				         if (topContainer == null)
 				         {
 				            throw new Exception("Could not locate the top container");
 				         }
 		
-				         //
 				         Method getPortalContainerMethod = topContainer.getClass().getMethod("getPortalContainer", String.class);
 				         Object container = getPortalContainerMethod.invoke(topContainer, containerName);
-				         System.out.println("---->ChMan: "+topContainer.getClass().getClassLoader());
-				         //
+				         //System.out.println("---->ChMan: "+topContainer.getClass().getClassLoader());
 				         if (container == null)
 				         {
 				            throw new Exception("Could not obtain the " + containerName + " portal container");
 				         }
 		
-				         //
 				         Method getComponentInstanceOfTypeMethod = container.getClass().getMethod("getComponentInstanceOfType", Class.class);
 				         //Class<?> serviceClass = Thread.currentThread().getContextClassLoader().loadClass(implementationType.getName());
 				         Object service = getComponentInstanceOfTypeMethod.invoke(container, implementationType);
@@ -82,7 +78,7 @@ public class CrossMetaProvider implements org.juzu.impl.inject.MetaProvider{
 				      }
 				      catch (Exception e)
 				      {
-				    	 e.printStackTrace();
+//				    	 e.printStackTrace();
 				         throw null;
 				      }
 				}

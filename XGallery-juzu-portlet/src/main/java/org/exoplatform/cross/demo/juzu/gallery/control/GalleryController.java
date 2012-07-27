@@ -76,6 +76,11 @@ public class GalleryController extends Controller{
 			displayView.with().title(gName).photos(photos).message(message).render();			
 		}
 	}
+	
+	@Action
+	public Response refresh(String galleryPath){
+		return GalleryController_.index(null);
+	}
 
 	@Action
 	public Response selectGallery(String galleryPath){		
@@ -88,8 +93,8 @@ public class GalleryController extends Controller{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//gIndex = galleries.indexOf(galleryPath);			
-		return GalleryController_.index(null).setParameter(JuzuPortlet.PORTLET_MODE.toString(), PortletMode.VIEW.toString());				
+		//gIndex = galleries.indexOf(galleryPath);		
+		return GalleryController_.index(null).setProperty(JuzuPortlet.PORTLET_MODE, PortletMode.VIEW);							
 	}
 	
 	@Action
@@ -99,7 +104,7 @@ public class GalleryController extends Controller{
 		try{			
 			gService.addGallery(galleryName);
 		}catch(Exception e){
-			e.printStackTrace();			
+			//e.printStackTrace();			
 			return GalleryController_.index(e.toString());
 		}		
 		return GalleryController_.index(galleryName + " is created");		

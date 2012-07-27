@@ -15,7 +15,7 @@
      <init-param>
        <name>juzu.run_mode</name>
        <value>dev</value>
-     </init-param>
+     </init-param>     
      <supports>
        <mime-type>text/html</mime-type>
      </supports>
@@ -37,6 +37,10 @@
        <name>juzu.run_mode</name>
        <value>dev</value>
      </init-param>     
+     <init-param>
+       <name>juzu.src_path</name>
+       <value>/home/haltt/workspace/Study/Practice/Juzu-Chromattic/XGallery/XGallery-juzu-portlet/src/main/java</value>
+     </init-param>
      <init-param>
        <name>workspace</name>
        <value>portal-work</value>
